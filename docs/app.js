@@ -57,9 +57,10 @@ window.addEventListener("load", () => {
           if (cartasLevantadas == 2) {
             alert("Is not allowed to turn around more than 2 cards");
           } else {
+
             // removing tapa class to display the value's card
             elem.getElementsByTagName("img")[0].style.visibility =
-              "visible"; //esconde la foto
+              "visible"; //showing pic
             elem.classList.remove("tapa");
             ++cartasLevantadas;
 
@@ -69,11 +70,10 @@ window.addEventListener("load", () => {
             var index = mysrc.lastIndexOf("/") + 1;
             var filename = mysrc.substr(index);
             var valor = filename[0];
-            console.log("Valor: " + valor); //saca el nombre del archivo
-
 
             // storing into the array the value's card
             cartasEscogidas[cartasLevantadas - 1] = valor;
+
             // storing into the array the id's card
             IDcartasEscogidas[cartasLevantadas - 1] = elem.id;
 
@@ -105,11 +105,13 @@ window.addEventListener("load", () => {
                 var cajaAcertada2 = document.getElementById(
                   IDcartasEscogidas[1]
                 );
+
                 // removing event to the cards already matched and adding acertada class and removing tapa class
                 cajaAcertada1.classList.add("acertada");
                 cajaAcertada1.classList.remove("tapa");
                 cajaAcertada1.removeEventListener("click", test(this));
                 cajaAcertada1.setAttribute("style", "cursor:default;");
+
                 cajaAcertada2.classList.add("acertada");
                 cajaAcertada2.classList.remove("tapa");
                 cajaAcertada2.removeEventListener("click", test(this));
@@ -117,12 +119,14 @@ window.addEventListener("load", () => {
 
                 if (ptsPlayer1 == 3) {
                   setTimeout(function () {
+
                     // changing the turn and turning around the cards
                     mensaje.innerHTML = "Player 1 won !!!";
                     ganador("You are the winner Player 1 !!!");
                   }, delayInMilliseconds);
                 } else if (ptsPlayer2 == 3) {
                   setTimeout(function () {
+
                     // changing the turn and turning around the cards
                     mensaje.innerHTML = "Player 2 won !!!";
                     ganador("You are the winner Player 2 !!!");
@@ -135,6 +139,7 @@ window.addEventListener("load", () => {
                 // setting a 1 sec. delay
                 var delayInMilliseconds = 1000;
                 setTimeout(function () {
+
                   // changing the turn and turning around the cards
                   mensaje.innerHTML = "Error :(";
                   GiraCartasNoAcertadas();
@@ -151,6 +156,7 @@ window.addEventListener("load", () => {
 
 
   function Iniciojuego() {
+
     // setting turn to false to give the fist turn to player 1
     var turno = false;
     ptsPlayer1 = 0;
@@ -178,13 +184,13 @@ window.addEventListener("load", () => {
 
     var todosLosBox = document.getElementsByClassName("box");
 
-
+    //hidding pictures
     let cartas = document.querySelectorAll(".box");
     cartas.forEach(function (elem) {
       elem.style.backgroundColor =
         "white";
       elem.getElementsByTagName("img")[0].style.visibility =
-        "hidden"; //esconde la foto
+        "hidden";
     })
 
     var sice = todosLosBox.length;
@@ -193,24 +199,20 @@ window.addEventListener("load", () => {
       // hidding cards
       todosLosBox[i].classList.add("tapa");
       todosLosBox[i].getElementsByTagName("img")[0].style.visibility =
-        "hidden"; //esconde la foto
+        "hidden";
       if (todosLosBox[i].classList.contains("acertada")) {
         todosLosBox[i].classList.remove("acertada");
-        // todosLosBox[i].getElementsByTagName("img")[0].style.visibility =
-        //   "visible"; //esconde la foto
       }
 
       // giving values
       var j = i + 1;
       var myimg = todosLosBox[i].getElementsByTagName("img")[0];
-      //document.querySelector("#carta" + j).innerHTML = numerosDesordenados[i];
       myimg.src = "./img/" + numerosDesordenados[i] + ".svg";
     }
   }
 
   // check if two cards are equals
   function CheckCards(carta1, carta2) {
-
 
     if (carta1 == carta2) {
       return true;
@@ -220,20 +222,21 @@ window.addEventListener("load", () => {
   }
 
   function GiraCartasNoAcertadas() {
+
     // hidding cards
     let cartas = document.querySelectorAll(".box");
 
     cartas.forEach(function (elem) {
       if (elem.classList.contains("acertada")) {
         elem.getElementsByTagName("img")[0].style.visibility =
-          "visible"; //show pic
-        // do nothing
+          "visible";
       } else {
         elem.classList.add("tapa");
         elem.getElementsByTagName("img")[0].style.visibility =
-          "hidden"; //esconde la foto
+          "hidden";
       }
     });
+
     // change the turn
     if (turno) {
       marcoTurnoPl1.classList.add("turno");
