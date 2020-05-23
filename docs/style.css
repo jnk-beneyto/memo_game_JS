@@ -6,6 +6,16 @@ body {
   justify-content: center;
 }
 
+img {
+  width: 100%;
+  height: auto;
+  align-content: center;
+}
+
+/* .ocultaImg {
+  display: none;
+} */
+
 .container {
   margin: 20px auto;
   padding: 10px;
@@ -28,10 +38,10 @@ body {
   background-color: white;
   color: black;
   border: 2px solid black;
-  min-height: 180px;
-  display: block;
-  font-size: 60px;
-  min-width: 200px;
+  max-height: 200px;
+  display: flex;
+  /* font-size: 60px; */
+  width: 200px;
 }
 
 .player1 {
@@ -43,6 +53,7 @@ body {
   grid-column: 5 / 6;
   font-size: 40px;
 }
+
 .mensajes {
   font-size: 40px;
 }
@@ -89,4 +100,9 @@ body {
 #titulo {
   color: beige;
   font-size: 35px;
+}
+
+.box:hover {
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
 }

@@ -58,10 +58,20 @@ window.addEventListener("load", () => {
             alert("Is not allowed to turn around more than 2 cards");
           } else {
             // removing tapa class to display the value's card
+            elem.getElementsByTagName("img")[0].style.visibility =
+              "visible"; //esconde la foto
             elem.classList.remove("tapa");
             ++cartasLevantadas;
 
-            var valor = this.innerText;
+            // getting file name (it is a number)
+            var myimg = elem.getElementsByTagName("img")[0];
+            var mysrc = myimg.src;
+            var index = mysrc.lastIndexOf("/") + 1;
+            var filename = mysrc.substr(index);
+            var valor = filename[0];
+            console.log("Valor: " + valor); //saca el nombre del archivo
+
+
             // storing into the array the value's card
             cartasEscogidas[cartasLevantadas - 1] = valor;
             // storing into the array the id's card
@@ -99,9 +109,12 @@ window.addEventListener("load", () => {
                 cajaAcertada1.classList.add("acertada");
                 cajaAcertada1.classList.remove("tapa");
                 cajaAcertada1.removeEventListener("click", test(this));
+                cajaAcertada1.setAttribute("style", "cursor:default;");
                 cajaAcertada2.classList.add("acertada");
                 cajaAcertada2.classList.remove("tapa");
                 cajaAcertada2.removeEventListener("click", test(this));
+                cajaAcertada2.setAttribute("style", "cursor:default;");
+
                 if (ptsPlayer1 == 3) {
                   setTimeout(function () {
                     // changing the turn and turning around the cards
@@ -164,22 +177,41 @@ window.addEventListener("load", () => {
     var numerosDesordenados = desordenar(valoresCartas);
 
     var todosLosBox = document.getElementsByClassName("box");
+
+
+    let cartas = document.querySelectorAll(".box");
+    cartas.forEach(function (elem) {
+      elem.style.backgroundColor =
+        "white";
+      elem.getElementsByTagName("img")[0].style.visibility =
+        "hidden"; //esconde la foto
+    })
+
     var sice = todosLosBox.length;
     for (var i = 0; i < sice; i++) {
+
       // hidding cards
       todosLosBox[i].classList.add("tapa");
+      todosLosBox[i].getElementsByTagName("img")[0].style.visibility =
+        "hidden"; //esconde la foto
       if (todosLosBox[i].classList.contains("acertada")) {
         todosLosBox[i].classList.remove("acertada");
+        // todosLosBox[i].getElementsByTagName("img")[0].style.visibility =
+        //   "visible"; //esconde la foto
       }
 
       // giving values
       var j = i + 1;
-      document.querySelector("#carta" + j).innerHTML = numerosDesordenados[i];
+      var myimg = todosLosBox[i].getElementsByTagName("img")[0];
+      //document.querySelector("#carta" + j).innerHTML = numerosDesordenados[i];
+      myimg.src = "./img/" + numerosDesordenados[i] + ".svg";
     }
   }
 
   // check if two cards are equals
   function CheckCards(carta1, carta2) {
+
+
     if (carta1 == carta2) {
       return true;
     } else {
@@ -193,9 +225,13 @@ window.addEventListener("load", () => {
 
     cartas.forEach(function (elem) {
       if (elem.classList.contains("acertada")) {
+        elem.getElementsByTagName("img")[0].style.visibility =
+          "visible"; //show pic
         // do nothing
       } else {
         elem.classList.add("tapa");
+        elem.getElementsByTagName("img")[0].style.visibility =
+          "hidden"; //esconde la foto
       }
     });
     // change the turn
