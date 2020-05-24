@@ -8,59 +8,72 @@
   <title>Memo</title>
   <link rel="stylesheet" href="style.css" />
   <script type="text/javascript" src="app.js"></script>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
 
 <body>
-  <div class="container">
-    <!-- first row -->
-    <div class="player1 sbox">
-      <div id="pl1">
-        YOU MOVE
-      </div>
-      <div id="ply1" class="ply">
-        PLAYER 1
-      </div>
-      <div id="pts1" class="pts">
-        PTS: 0
+  <div class="container mt-4">
+    <!-- header -->
+    <div class="row">
+      <div class="wrapperT">
+        <div class="player1 sbox">
+          <div id="pl1">
+            YOU MOVE
+          </div>
+          <div id="ply1" class="ply">
+            PLAYER 1
+          </div>
+          <div id="pts1" class="pts">
+            PTS: 0
+          </div>
+        </div>
+        <div class="info sbox" id="cajaInfo">
+          <div>
+            <span id="titulo">
+              M E M O _ G A M E
+            </span>
+          </div>
+          <div class="mensajes">
+            START!
+          </div>
+          <div class="reset">
+            <button class="btn">
+              reset
+            </button>
+          </div>
+        </div>
+        <div class="player2 sbox">
+          <div id="pl2">
+            YOU MOVE
+          </div>
+          <div id="ply2" class="ply">
+            PLAYER 2
+          </div>
+          <div id="pts2" class="pts">
+            PTS: 0
+          </div>
+        </div>
       </div>
     </div>
-    <div class=" sbox" id="cajaInfo">
-      <div>
-        <span id="titulo">
-          M E M O _ G A M E
-        </span>
-      </div>
-      <div class="mensajes">
-        START!
-      </div>
-      <div class="reset">
-        <button class="btn">
-          reset
-        </button>
-      </div>
-    </div>
-    <div class="player2 sbox">
-      <div id="pl2">
-        YOU MOVE
-      </div>
-      <div id="ply2" class="ply">
-        PLAYER 2
-      </div>
-      <div id="pts2" class="pts">
-        PTS: 0
+
+    <!-- cards -->
+
+    <div class="row main mt-2">
+      <div class="wrapper">
+        <div id="carta1" class="box"> <img src=""></div>
+        <div id="carta2" class="box"> <img src=""></div>
+        <div id="carta3" class="box"> <img src=""></div>
+        <div id="carta4" class="box"> <img src=""></div>
+        <div id="carta5" class="box"> <img src=""></div>
+        <div id="carta6" class="box"> <img src=""></div>
+        <div id="carta7" class="box"> <img src=""></div>
+        <div id="carta8" class="box"> <img src=""></div>
+        <div id="carta9" class="box"> <img src=""></div>
+        <div id="carta10" class="box"> <img src=""></div>
       </div>
     </div>
-    <div id="carta1" class="box"> <img src=""></div>
-    <div id="carta2" class="box"> <img src=""></div>
-    <div id="carta3" class="box"> <img src=""></div>
-    <div id="carta4" class="box"> <img src=""></div>
-    <div id="carta5" class="box"> <img src=""></div>
-    <div id="carta6" class="box"> <img src=""></div>
-    <div id="carta7" class="box"> <img src=""></div>
-    <div id="carta8" class="box"> <img src=""></div>
-    <div id="carta9" class="box"> <img src=""></div>
-    <div id="carta10" class="box"> <img src=""></div>
-    </img>
 </body>
 
 </html>
