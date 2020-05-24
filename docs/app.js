@@ -34,6 +34,8 @@ window.addEventListener("load", () => {
 
   // setting player1 turn in order to start the game
   marcoTurnoPl1.classList.add("turno");
+  marcoTurnoPl1.classList.add("pl1");
+
 
   // setting reset button
   var botonReset = document.querySelector(".reset");
@@ -44,7 +46,9 @@ window.addEventListener("load", () => {
     // changing the turn
     if (marcoTurnoPl2.classList.contains("turno")) {
       marcoTurnoPl1.classList.add("turno");
+      marcoTurnoPl1.classList.add("pl1");
       marcoTurnoPl2.classList.remove("turno");
+      marcoTurnoPl2.classList.remove("pl2");
     }
     Iniciojuego();
   });
@@ -240,11 +244,16 @@ window.addEventListener("load", () => {
     // change the turn
     if (turno) {
       marcoTurnoPl1.classList.add("turno");
+      marcoTurnoPl1.classList.add("pl1");
       marcoTurnoPl2.classList.remove("turno");
+      marcoTurnoPl2.classList.remove("pl2");
       turno = false;
     } else {
       marcoTurnoPl1.classList.remove("turno");
+      marcoTurnoPl1.classList.remove("pl1");
       marcoTurnoPl2.classList.add("turno");
+      marcoTurnoPl2.classList.add("pl2");
+
       turno = true;
     }
     cartasLevantadas = 0;
