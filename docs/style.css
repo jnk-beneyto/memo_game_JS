@@ -19,19 +19,20 @@ img {
 
 .pl1,
 .pl2 {
-	background: rgb(1, 0, 23);
-	background: linear-gradient(
-		180deg,
-		rgba(2, 0, 36, 1) 0%,
-		rgba(43, 103, 39, 1) 18%,
-		rgba(32, 215, 37, 1) 72%
-	);
+	/* background: rgb(1, 0, 23);
 	width: 100%;
-	height: 25%;
-	/* margin-bottom: 5px; */
+	height: 25%; */
+	width: 100%;
+	box-shadow: inset 100px 20px 0 0 linear-gradient(180deg,
+			rgba(2, 0, 36, 1) 0%,
+			rgba(43, 103, 39, 1) 18%,
+			rgba(32, 215, 37, 1) 72%);
+	transition: all 2s ease;
+
 }
 
 .pl {
+	box-shadow: inset 0 0 0 0 white;
 	height: 25%;
 }
 
@@ -57,9 +58,31 @@ img {
 	/* width: 200px; */
 }
 
-.mensajes {
+/* .mensajes {
 	font-size: 40px;
+} */
+
+
+.mensajes {
+	animation: coolEntry 1s ease-in;
 }
+
+#imgCentral {
+	height: 35px;
+	width: 35px;
+}
+
+@keyframes coolEntry {
+	0% {
+		transform: skewY(90deg);
+	}
+
+	100% {
+		transform: skewY(0deg);
+	}
+}
+
+
 
 .reset button {
 	border-radius: 5px;
