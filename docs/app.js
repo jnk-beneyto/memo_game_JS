@@ -25,8 +25,6 @@ window.addEventListener("load", () => {
   // Messages panel 
   var mensaje = document.getElementById("mensajes");
 
-
-
   var marcadorPlayer1 = document.querySelector("#pts1");
   var marcadorPlayer2 = document.querySelector("#pts2");
   var marcoTurnoPl1 = document.querySelector("#pl1");
@@ -34,11 +32,9 @@ window.addEventListener("load", () => {
 
   Iniciojuego();
 
-
   // setting player1 turn in order to start the game
   marcoTurnoPl1.classList.add("turno");
   marcoTurnoPl1.classList.add("pl1");
-
 
   // setting reset button
   var botonReset = document.querySelector(".reset");
@@ -46,6 +42,7 @@ window.addEventListener("load", () => {
     ptsPlayer1 = 0;
     ptsPlayer2 = 0;
     cartasLevantadas = 0;
+
     // changing the turn
     if (marcoTurnoPl2.classList.contains("turno")) {
       marcoTurnoPl1.classList.add("turno");
@@ -90,16 +87,17 @@ window.addEventListener("load", () => {
                 cartasEscogidas[1]
               );
               if (resultadoCheckeo) {
+
                 // checking if two cards are equals
                 if (turno) {
                   ptsPlayer2++;
                   marcadorPlayer2.innerText = "PTS : " + ptsPlayer2;
-                  // mensaje.innerHTML = "got it Player2!! ";
+
+                  // showing check image
                   mensaje.getElementsByTagName("img")[0].src = "./img/check.svg";
                 } else {
                   ptsPlayer1++;
                   marcadorPlayer1.innerText = "PTS : " + ptsPlayer1;
-                  //mensaje.innerHTML = "got it Player1!! ";
                   mensaje.getElementsByTagName("img")[0].src = "./img/check.svg";
 
                 }
@@ -127,31 +125,24 @@ window.addEventListener("load", () => {
                 cajaAcertada2.removeEventListener("click", test(this));
                 cajaAcertada2.setAttribute("style", "cursor:default;");
 
+                //checking if there's a winner
                 if (ptsPlayer1 == 3) {
                   setTimeout(function () {
-
-                    // changing the turn and turning around the cards
-                    //mensaje.innerHTML = "Player 1 won !!!";
                     ganador("You are the winner Player 1 !!!");
                   }, delayInMilliseconds);
                 } else if (ptsPlayer2 == 3) {
                   setTimeout(function () {
-
-                    // changing the turn and turning around the cards
-                    //mensaje.innerHTML = "Player 2 won !!!";
                     ganador("You are the winner Player 2 !!!");
                   }, delayInMilliseconds);
                 } else {
                   cartasLevantadas = 0;
                 }
               } else {
-
-                // setting a 1 sec. delay
                 var delayInMilliseconds = 1000;
                 setTimeout(function () {
 
                   // changing the turn and turning around the cards
-                  //mensaje.innerHTML = "Error :(";
+                  // showing cross image
                   mensaje.getElementsByTagName("img")[0].src = "./img/x.svg";
                   mensaje.classList.add("mensaje");
                   GiraCartasNoAcertadas();
@@ -178,11 +169,8 @@ window.addEventListener("load", () => {
     var mensaje = document.getElementById("mensajes");
     mensaje.getElementsByTagName("img")[0].src = "./img/play.svg";
 
-
     marcadorPlayer1.innerText = "PTS : " + ptsPlayer1;
     marcadorPlayer2.innerText = "PTS : " + ptsPlayer2;
-
-    //mensaje.innerHTML = "START !!";
 
     // setting the values of the cards
     var valoresCartas = [1, 2, 3, 4, 5, 1, 2, 3, 4, 5];
